@@ -1,7 +1,7 @@
 package domain;
 
 public class Student {
-    private Integer id;
+    private Integer studentId;
     private String name;
     private SubjectList subjectList;
     private ScoreList scoreList;
