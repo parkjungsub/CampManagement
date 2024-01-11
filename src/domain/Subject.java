@@ -1,13 +1,26 @@
 package domain;
 
 public class Subject {
-    private Integer subjectId = 0;
+    private static int idSeq = 0;
+    private Integer subjectId ;
     private String name;
     private OptionalRequired optionalRequired;
 
     public Subject(String name, OptionalRequired optionalRequired) {
-        this.subjectId++;
+        this.subjectId = idSeq++;
         this.name = name;
         this.optionalRequired = optionalRequired;
+    }
+
+    public Integer getSubjectId() {
+        return subjectId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public OptionalRequired getOptionalRequired() {
+        return optionalRequired;
     }
 }

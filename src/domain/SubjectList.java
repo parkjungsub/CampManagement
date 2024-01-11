@@ -10,4 +10,7 @@ public class SubjectList {
         subjectList.add(subject);
     }
 
+    public List<Subject> getSubjectList() {
+        return subjectList;
+    }
 }
