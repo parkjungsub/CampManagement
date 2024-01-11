@@ -5,6 +5,12 @@ import domain.*;
 public class InitData {
     private SubjectList subjectList = new SubjectList();
     private StudentList studentList = new StudentList();
+    private ScoreList scoreList = new ScoreList();
+
+    public ScoreList scoreList() {
+        initScore();
+        return scoreList;
+    }
 
     public SubjectList subjectList() {
         initSubjects();
@@ -32,6 +38,10 @@ public class InitData {
         studentList.addStudent(new Student("주준호"));
         studentList.addStudent(new Student("박정섭"));
         studentList.addStudent(new Student("홍세희"));
+    }
+    private void initScore(){
+        scoreList.addScore(new Score(1,1,1,95));
+
     }
 
 
