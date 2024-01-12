@@ -5,7 +5,7 @@ import domain.StudentList;
 
 import java.util.Scanner;
 
-public class StudentRegistration {
+public class StudentManagement {
     Scanner input = new Scanner(System.in);
 
     public void addStudentRegistration(StudentList studentRepository){ // 학생 이름 등록하는 메소드

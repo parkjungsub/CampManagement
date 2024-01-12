@@ -3,7 +3,7 @@ import domain.ScoreList;
 import domain.StudentList;
 import domain.SubjectList;
 import service.UpdateExamRoundAndScoreByStudentSubject;
-import service.StudentRegistration;
+import service.StudentManagement;
 
 
 import java.util.Scanner;
@@ -16,7 +16,7 @@ public class CampManagement {
         final StudentList studentRepository = initData.studentList();
         final SubjectList subjectRepository = initData.subjectList();
         final ScoreList scoreRepository = initData.scoreList();
-        StudentRegistration studentRegistration = new StudentRegistration();
+        StudentManagement studentRegistration = new StudentManagement();
 
         //지역 변수
         Scanner input = new Scanner(System.in);
