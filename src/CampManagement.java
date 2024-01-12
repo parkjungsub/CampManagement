@@ -3,6 +3,8 @@ import domain.ScoreList;
 import domain.StudentList;
 import domain.SubjectList;
 import service.UpdateExamRoundAndScoreByStudentSubject;
+import service.StudentRegistration;
+
 
 import java.util.Scanner;
 
@@ -14,6 +16,8 @@ public class CampManagement {
         final StudentList studentRepository = initData.studentList();
         final SubjectList subjectRepository = initData.subjectList();
         final ScoreList scoreRepository = initData.scoreList();
+        StudentRegistration studentRegistration = new StudentRegistration();
+
         //지역 변수
         Scanner input = new Scanner(System.in);
         System.out.println("[ 캠프관리자 ]");
@@ -26,11 +30,11 @@ public class CampManagement {
             int click = input.nextInt();
             //수강생 등록
             if(click == 1){
-
+                studentRegistration.addStudentRegistration(studentRepository);
             }
             //수강생 목록
             if(click == 2){
-
+                studentRegistration.getStudentRegistration(studentRepository);
             }
             //수강생 과목별 시험 회차 및 점수 등록
             if(click == 3){
