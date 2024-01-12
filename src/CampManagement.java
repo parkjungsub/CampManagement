@@ -3,6 +3,11 @@ import domain.*;
 import service.ScoreService;
 
 import javax.xml.stream.events.StartDocument;
+import domain.ScoreList;
+import domain.StudentList;
+import domain.SubjectList;
+import service.UpdateExamRoundAndScoreByStudentSubject;
+
 import java.util.Scanner;
 
 public class CampManagement {
@@ -12,6 +17,8 @@ public class CampManagement {
         InitData initData = new InitData();
         final StudentList studentRepository = initData.studentList();
         final SubjectList subjectRepository = initData.subjectList();
+
+        final ScoreList scoreRepository = initData.scoreList();
         //지역 변수
         Scanner input = new Scanner(System.in);
         System.out.println("[ 캠프관리자 ]");
@@ -19,6 +26,7 @@ public class CampManagement {
 
         ScoreService scoreService = new ScoreService();
 
+        UpdateExamRoundAndScoreByStudentSubject updateExamRoundAndScoreByStudentSubject = new UpdateExamRoundAndScoreByStudentSubject();
 
         //campManagement 로직
         while(true){
@@ -39,6 +47,11 @@ public class CampManagement {
             //수강생 과목별 시험 회차 및 점수 수정
             if(click == 4){
 
+
+            }
+            //수강생 과목별 시험 회차 및 점수 수정
+            if(click == 4){
+                updateExamRoundAndScoreByStudentSubject.updateScoreByStudentRound(studentRepository,subjectRepository ,scoreRepository);
             }
             //수강생 특정 회차별 등급 조회
             if(click == 5){

@@ -2,7 +2,7 @@ package domain;
 
 public class Subject {
     private static int idSeq = 1;
-    private Integer subjectId=0;
+    private Integer subjectId ;
     private String name;
     private OptionalRequired optionalRequired;
 
@@ -18,5 +18,9 @@ public class Subject {
 
     public String getName() {
         return name;
+    }
+
+    public OptionalRequired getOptionalRequired() {
+        return optionalRequired;
     }
 }

@@ -12,17 +12,23 @@ public class ScoreList {
         scoreList.add(score);
     }
 
-    public List<Score> getScoreList(){
+    public ScoreList() {
+    }
+
+    public List<Score> getScoreList() {
         return scoreList;
     }
 
-//    public void print(){
-//        for (Score score : scoreList) {
-//            System.out.println("이름 : " + score.getStudentId()
-//                    + " , 과목 : " + score.getSubjectId()
-//                    + " , 회차 : " + score.getTestRound()
-//                    + " , 점수 : " + score.getScore());
-//            System.out.println("성적이 등록 되었습니다.");
-//        }
-//    }
+    public void addScore(Score score){
+        scoreList.add(score);
+    }
+
+    //수정할 점수의 학생이 존재하는 지
+    public Integer containStudentByScore(Student student){
+        for (Score score : scoreList) {
+            if(score.getStudentId() == student.getStudentId()) return student.getStudentId();
+        }
+        return -1;
+    }
+
 }
