@@ -18,12 +18,12 @@ public class StudentManagement {
         }
     }
 
-    public void getOneStudent(StudentList studentRepository){ //특정 학생만 출력하는 메소드
+    public void getOneStudent(StudentList studentRepository){ // 인덱스를 이용하여 학생만 출력하는 메소드
         int idNum = input.nextInt();
         System.out.println("수강생: " + studentRepository.getStudentList().get(idNum).getName() + "\t고유번호: " + studentRepository.getStudentList().get(idNum).getStudentId());
     }
 
-    public void deleteOneStudent(StudentList studentRepository){
+    public void deleteOneStudent(StudentList studentRepository){// 인덱스를 이용하여 수강생을 삭제하는 메소드
         System.out.println("삭제하고 싶은 수강생을 고유번호를 입력하시오.");
         int idNum = input.nextInt();
         studentRepository.getStudentList().remove(idNum-1);
