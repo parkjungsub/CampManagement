@@ -1,10 +1,12 @@
 package domain;
 
+import data.InitData;
+
 public class Student {
     private static int idSeq = 1;
     private Integer studentId;
     private String name;
-    private SubjectList subjectList;
+    private SubjectList subjectList = new SubjectList();
 
     public Student(String name) {
         this.studentId = idSeq++;
@@ -25,5 +27,19 @@ public class Student {
 
     public SubjectList getSubjectList() {
         return subjectList;
+    }
+
+
+    public void addSubjects(SubjectList subjectList){
+        this.subjectList = subjectList;
+    }
+
+    public void showSubjectList() {
+        System.out.println(name + "의 등록된 과목입니다.");
+        if (subjectList == null) {
+            System.out.println("등록된 과목이 없습니다");
+        } else {
+            subjectList.showSubjectList();
+        }
     }
 }
