@@ -15,11 +15,6 @@ public class ScoreService {
 
     // 메서드 이름 변경
     public void registerScore(StudentList studentList, SubjectList subjectList) {
-
-        CreateSubjectsThatStudentListening add = new CreateSubjectsThatStudentListening();
-        add.createSubjectsThatStudentListening(studentList,subjectList);
-
-
         System.out.println("성적을 입력할 학생을 고르세요.");
 
         for (Student student : studentList.getStudentList()) {

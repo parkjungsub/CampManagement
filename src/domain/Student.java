@@ -1,6 +1,5 @@
 package domain;
 
-import data.InitData;
 
 public class Student {
     private static int idSeq = 1;
