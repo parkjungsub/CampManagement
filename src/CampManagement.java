@@ -1,0 +1,49 @@
+import data.InitData;
+import domain.*;
+import service.ScoreService;
+
+import javax.xml.stream.events.StartDocument;
+import java.util.Scanner;
+
+public class CampManagement {
+    public void systemOn(){
+        Frame frame = new Frame();
+        //Repository
+        InitData initData = new InitData();
+        final StudentList studentRepository = initData.studentList();
+        final SubjectList subjectRepository = initData.subjectList();
+        //지역 변수
+        Scanner input = new Scanner(System.in);
+        System.out.println("[ 캠프관리자 ]");
+        //할당 부분
+
+        ScoreService scoreService = new ScoreService();
+
+
+        //campManagement 로직
+        while(true){
+            frame.mainFrame();
+            int click = input.nextInt();
+            //수강생 등록
+            if(click == 1){
+
+            }
+            //수강생 목록
+            if(click == 2){
+
+            }
+            //수강생 과목별 시험 회차 및 점수 등록
+            if(click == 3){
+                scoreService.setScore(studentRepository, subjectRepository);
+            }
+            //수강생 과목별 시험 회차 및 점수 수정
+            if(click == 4){
+
+            }
+            //수강생 특정 회차별 등급 조회
+            if(click == 5){
+
+            }
+        }
+    }
+}
