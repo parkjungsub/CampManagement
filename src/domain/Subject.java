@@ -23,4 +23,5 @@ public class Subject {
     public OptionalRequired getOptionalRequired() {
         return optionalRequired;
     }
+
 }

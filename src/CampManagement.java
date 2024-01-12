@@ -6,6 +6,7 @@ import service.UpdateExamRoundAndScoreByStudentSubject;
 
 import java.util.Scanner;
 
+
 public class CampManagement {
     public void systemOn(){
         Frame frame = new Frame();
@@ -26,7 +27,6 @@ public class CampManagement {
             int click = input.nextInt();
             //수강생 등록
             if(click == 1){
-
             }
             //수강생 목록
             if(click == 2){

@@ -16,7 +16,6 @@ public class Score {
         this.testRound = testRound;
         this.score = score;
     }
-
     public Integer getStudentId() {
         return studentId;
     }
