@@ -1,7 +1,7 @@
 package domain;
 
 public class Subject {
-    private static int idSeq = 0;
+    private static int idSeq = 1;
     private Integer subjectId ;
     private String name;
     private OptionalRequired optionalRequired;

@@ -38,10 +38,12 @@ public class InitData {
         studentList.addStudent(new Student("주준호"));
         studentList.addStudent(new Student("박정섭"));
         studentList.addStudent(new Student("홍세희"));
+
     }
+
+
     private void initScore(){
         scoreList.addScore(new Score(1,1,1,95));
-
     }
 
 

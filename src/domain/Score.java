@@ -1,5 +1,7 @@
 package domain;
 
+
+
 public class Score {
     private Integer subjectId;
     private Integer studentId;
@@ -21,6 +23,7 @@ public class Score {
         return studentId;
     }
 
+
     public Integer getSubjectId() {
         return subjectId;
     }
@@ -32,6 +35,7 @@ public class Score {
     public Integer getScore() {
         return score;
     }
+
 
     public String getGrade() {
         return grade;
