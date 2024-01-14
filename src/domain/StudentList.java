@@ -21,9 +21,9 @@ public class StudentList {
         }
         return null;
     }
-    public Student isStudentByName(String name){
+    public Student isStudentByName(String name) {
         for (Student student : studentList) {
-            if(name.equals(student.getName())) return student;
+            if (name.equals(student.getName())) return student;
         }
         return null;
     }
