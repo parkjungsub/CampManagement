@@ -31,6 +31,7 @@ public class StudentList {
     public Student findStudentById(Integer id){
         return studentList.get(id);
     }
+
     public void showStudentList(){
         if(studentList == null) System.out.println("등록된 학생이 없습니다");
         else {
