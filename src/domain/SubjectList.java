@@ -29,4 +29,8 @@ public class SubjectList {
     public Subject findSubjectById(Integer id){
         return subjectList.get(id);
     }
+
+    public String findSubjectNameById(int subjectId){
+        return this.getSubjectList().get(subjectId).getName();
+    }
 }
