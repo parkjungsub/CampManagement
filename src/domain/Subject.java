@@ -23,4 +23,9 @@ public class Subject {
     public OptionalRequired getOptionalRequired() {
         return optionalRequired;
     }
+
+    public boolean isEssential() {
+        if(optionalRequired.equals(OptionalRequired.ESSENTIAL)) return true;
+        else return false;
+    }
 }
