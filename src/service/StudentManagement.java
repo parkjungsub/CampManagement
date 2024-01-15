@@ -26,7 +26,7 @@ public class StudentManagement {
     public void getStudentRegistration(StudentList studentRepository) {
         for (int i = 0; i < studentRepository.getStudentList().size();i++){
             System.out.println("수강생: " + studentRepository.getStudentList().get(i).getName() + "\t고유번호: " + studentRepository.getStudentList().get(i).getStudentId());
-            studentRepository.getSubjectList(i,studentRepository).showSubjectList(); //해당학생의 과목 출력
+            studentRepository.getSubjectList(i).showSubjectList(); //해당학생의 과목 출력
         }
     }
 
@@ -45,8 +45,8 @@ public class StudentManagement {
         String subject = input.next();
         for (int i = 0 ;i < studentRepository.getStudentList().size(); i++){
             for (int j = 0;j < studentRepository.getStudentList().get(i).getSubjectList().getSubjectList().size();j++){
-                 if (subject.equals(studentRepository.getSubjectList(i,studentRepository).getSubjectList().get(j).getName()) == true){
-                    System.out.println(studentRepository.getSubjectList(i,studentRepository).getSubjectList().get(j).getName() +"--- 수강생: " + studentRepository.getStudentList().get(i).getName() + "\t고유번호: " + studentRepository.getStudentList().get(i).getStudentId() );
+                 if (subject.equals(studentRepository.getSubjectList(i).getSubjectList().get(j).getName()) == true){
+                    System.out.println(studentRepository.getSubjectList(i).getSubjectList().get(j).getName() +"--- 수강생: " + studentRepository.getStudentList().get(i).getName() + "\t고유번호: " + studentRepository.getStudentList().get(i).getStudentId() );
                 }
             }
         }

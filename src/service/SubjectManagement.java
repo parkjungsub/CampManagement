@@ -16,7 +16,7 @@ public class SubjectManagement {
         for (int i = 0; i < numbers.length();i++){ //과목을 여러개 입력받아 학생의 과목의 리스트에 넣기
            try {
                int num = Integer.parseInt(numbers.substring(i,i+1));
-               studentRepository.getSubjectList(student.getStudentId()-1,studentRepository).addSubject(subjectList.findSubjectById(num -1)); //학생 개체의 안에 있는 과목의 리스트 리턴
+               studentRepository.getSubjectList(student.getStudentId()-1).addSubject(subjectList.findSubjectById(num -1)); //학생 개체의 안에 있는 과목의 리스트 리턴
            }catch (NumberFormatException e){
 
            }
