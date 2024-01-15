@@ -30,7 +30,7 @@ public class SubjectList {
         return subjectList.get(id);
     }
 
-    public String findSubjectNameById(SubjectList subjectList, int subjectId){
-        return subjectList.getSubjectList().get(subjectId).getName();
+    public String findSubjectNameById(int subjectId){
+        return this.getSubjectList().get(subjectId).getName();
     }
 }

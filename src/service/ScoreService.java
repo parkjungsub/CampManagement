@@ -62,7 +62,6 @@ public class ScoreService {
             round++;
         }
 
-
         // scoreList에 들어있는 값 출력
         print(scoreList.getScoreList(),studentList,subjectList,studentSelector-1,subjectSelector-1);
 
@@ -99,8 +98,8 @@ public class ScoreService {
 
     // 입력한 성적 출력
     private void print(List<Score> scoreList, StudentList studentList, SubjectList subjectList , int studentId, int subjectId){
-        System.out.println("이름 : " + studentList.findStudentNameById(studentList,studentId)
-                + " , 과목 : " + subjectList.findSubjectNameById(subjectList,subjectId));
+        System.out.println("이름 : " + studentList.findStudentNameById(studentId)
+                + " , 과목 : " + subjectList.findSubjectNameById(subjectId));
         for (Score score : scoreList) {
             System.out.println("회차 : " + score.getTestRound()
                     + " , 점수 : " + score.getScore());

@@ -32,8 +32,8 @@ public class StudentList {
         return studentList.get(id);
     }
 
-    public String findStudentNameById(StudentList studentList, int studentId){
-        return studentList.getStudentList().get(studentId).getName();
+    public String findStudentNameById(int studentId){
+        return this.getStudentList().get(studentId).getName();
     }
 
     public void showStudentList(){
