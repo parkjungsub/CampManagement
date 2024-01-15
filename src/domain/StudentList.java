@@ -41,7 +41,7 @@ public class StudentList {
     }
 
     // 학생 객체의 과목리스트의 주소를 반환하는 메소드
-    public SubjectList getSubjectList(int index, StudentList studentList){
-        return studentList.getStudentList().get(index).getSubjectList();
+    public SubjectList getSubjectList(int index){
+        return this.getStudentList().get(index).getSubjectList();
     }
 }
