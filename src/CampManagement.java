@@ -1,14 +1,11 @@
 import data.InitData;
 import domain.*;
-import service.ScoreService;
+import service.*;
 
 import javax.xml.stream.events.StartDocument;
 import domain.ScoreList;
 import domain.StudentList;
 import domain.SubjectList;
-import service.SubjectManagement;
-import service.UpdateExamRoundAndScoreByStudentSubject;
-import service.StudentManagement;
 
 
 import java.util.Scanner;
@@ -34,6 +31,7 @@ public class CampManagement {
 
         UpdateExamRoundAndScoreByStudentSubject updateExamRoundAndScoreByStudentSubject = new UpdateExamRoundAndScoreByStudentSubject();
 
+        ViewStudentGradeByRound viewStudentGradeByRound = new ViewStudentGradeByRound();
         //campManagement 로직
         while(true){
             frame.mainFrame();
@@ -57,7 +55,7 @@ public class CampManagement {
             }
             //수강생 특정 회차별 등급 조회
             if(click == 5){
-
+                viewStudentGradeByRound.viewStudentGradeByRound(studentRepository, subjectRepository, scoreRepository);
             }
             //수강생 특정 삭제
             if (click == 6){

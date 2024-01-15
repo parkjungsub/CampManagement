@@ -43,6 +43,10 @@ public class InitData {
 
 
     private void initScore(){
+        // subjectList
+        subjectList.addSubject(new Subject(1,"Java", OptionalRequired.ESSENTIAL));
+
+        // scoreList
         scoreList.addScore(new Score(1,1,1,95));
     }
 

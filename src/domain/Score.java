@@ -58,6 +58,13 @@ public class Score {
                     else if(score >= 70) return "D";
                     else return "F";
                 }
+                else if(subject.getOptionalRequired() == OptionalRequired.OPTIONAL){
+                    if(score>=90) return "A";
+                    else if(score >= 80) return "B";
+                    else if(score >= 70) return "C";
+                    else if(score >= 60) return "D";
+                    else return "F";
+                }
             }
         }
         return "존재하지 않는 과목입니다.";

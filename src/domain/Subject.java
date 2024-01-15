@@ -12,6 +12,12 @@ public class Subject {
         this.optionalRequired = optionalRequired;
     }
 
+    public Subject(Integer subjectId, String name, OptionalRequired optionalRequired) {
+        this.subjectId = subjectId;
+        this.name = name;
+        this.optionalRequired = optionalRequired;
+    }
+
     public Integer getSubjectId() {
         return subjectId;
     }

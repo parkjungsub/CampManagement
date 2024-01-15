@@ -29,4 +29,25 @@ public class ScoreList {
         return -1;
     }
 
+    public Score filterByStudentSubjectId(Integer studentId, Integer subjectId) {
+        for (Score score : scoreList) {
+            if (studentId.equals(score.getStudentId()) && subjectId.equals(score.getSubjectId())) return score;
+        }
+        return null;
+    }
+
+    public Boolean isStudentId(Integer studentId) {
+        for (Score score : scoreList) {
+            if (studentId.equals(score.getStudentId())) return true;
+        }
+        return false;
+    }
+
+    public Boolean isSubjectId(Integer subjectId) {
+        for (Score score : scoreList) {
+            if (subjectId.equals(score.getSubjectId())) return true;
+        }
+        return false;
+    }
+
 }
