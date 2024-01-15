@@ -10,9 +10,6 @@ public class ScoreList {
         scoreList.add(score);
     }
 
-    public ScoreList() {
-    }
-
     public List<Score> getScoreList() {
         return scoreList;
     }
