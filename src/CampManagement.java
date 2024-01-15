@@ -6,6 +6,7 @@ import javax.xml.stream.events.StartDocument;
 import domain.ScoreList;
 import domain.StudentList;
 import domain.SubjectList;
+import service.SubjectManagement;
 import service.UpdateExamRoundAndScoreByStudentSubject;
 import service.StudentManagement;
 
@@ -21,6 +22,7 @@ public class CampManagement {
         final SubjectList subjectRepository = initData.subjectList();
         final ScoreList scoreRepository = initData.scoreList();
         StudentManagement studentRegistration = new StudentManagement();
+        SubjectManagement subjectManagement =  new SubjectManagement();
 
 
         //지역 변수
@@ -38,7 +40,8 @@ public class CampManagement {
             int click = input.nextInt();
             //수강생 등록
             if(click == 1){
-                studentRegistration.addStudentRegistration(studentRepository);
+                studentRegistration.addStudentRegistration(studentRepository, subjectRepository);
+
             }
             //수강생 목록
             if(click == 2){
@@ -50,15 +53,19 @@ public class CampManagement {
             }
             //수강생 과목별 시험 회차 및 점수 수정
             if(click == 4){
-
-
-            }
-            //수강생 과목별 시험 회차 및 점수 수정
-            if(click == 4){
                 updateExamRoundAndScoreByStudentSubject.updateScoreByStudentRound(studentRepository,subjectRepository ,scoreRepository);
             }
             //수강생 특정 회차별 등급 조회
             if(click == 5){
+
+            }
+            //수강생 특정 삭제
+            if (click == 6){
+                studentRegistration.deleteOneStudent(studentRepository);
+            }
+            //과목을 통해 수강생 조회
+            if (click == 7){
+                studentRegistration.getOneStudent(studentRepository);
 
             }
         }
