@@ -10,6 +10,7 @@ public class ScoreService {
 
 
     private Scanner sc = new Scanner(System.in);
+    private KeepGrade keepGrade = new KeepGrade();
 
 
 
@@ -59,7 +60,9 @@ public class ScoreService {
             score.add(sc.nextInt());
 
             // Score(subjectId, studentId, testRound, score) 객체를 생성해서 scoreList에 담기
-            scoreList.setScoreList(new Score(subjectSelector-1,studentSelector-1,round,score.get(i)));
+            Score addedScore = new Score(subjectSelector - 1, studentSelector - 1, round, score.get(i));
+            keepGrade.keepScore(addedScore, subjectList.findSubjectById(subjectSelector - 1));
+            scoreList.setScoreList(addedScore);
             round++;
         }
 
