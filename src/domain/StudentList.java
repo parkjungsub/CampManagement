@@ -32,6 +32,10 @@ public class StudentList {
         return studentList.get(id);
     }
 
+    public String findStudentNameById(StudentList studentList, int studentId){
+        return studentList.getStudentList().get(studentId).getName();
+    }
+
     public void showStudentList(){
         if(studentList == null) System.out.println("등록된 학생이 없습니다");
         else {

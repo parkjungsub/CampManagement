@@ -12,13 +12,10 @@ public class ScoreService {
 
     private Scanner sc = new Scanner(System.in);
 
+
+
     // 메서드 이름 변경
     public void registerScore(StudentList studentList, SubjectList subjectList) {
-
-
-        CreateSubjectsThatStudentListening add = new CreateSubjectsThatStudentListening();
-        add.createSubjectsThatStudentListening(studentList,subjectList);
-
 
         System.out.println("성적을 입력할 학생을 고르세요.");
 
@@ -99,20 +96,11 @@ public class ScoreService {
         }
     }
 
-    // id로 student 이름 조회
-    private String findStudentNameById(StudentList studentList, int studentId){
-        return studentList.getStudentList().get(studentId).getName();
-    }
-
-    // id로 subject 이름 조회
-    private String findSubjectNameById(SubjectList subjectList, int subjectId){
-        return subjectList.getSubjectList().get(subjectId).getName();
-    }
 
     // 입력한 성적 출력
     private void print(List<Score> scoreList, StudentList studentList, SubjectList subjectList , int studentId, int subjectId){
-        System.out.println("이름 : " + findStudentNameById(studentList,studentId)
-                + " , 과목 : " + findSubjectNameById(subjectList,subjectId));
+        System.out.println("이름 : " + studentList.findStudentNameById(studentList,studentId)
+                + " , 과목 : " + subjectList.findSubjectNameById(subjectList,subjectId));
         for (Score score : scoreList) {
             System.out.println("회차 : " + score.getTestRound()
                     + " , 점수 : " + score.getScore());
