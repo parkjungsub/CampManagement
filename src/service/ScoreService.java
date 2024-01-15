@@ -54,14 +54,14 @@ public class ScoreService {
         // 회차 입력 x => 자동으로 회차 출력, 점수 등록
         List<Integer> score = new ArrayList<>();
 
-        for(int round=0; round<10; round++){
+        for(int round=0; round<3; round++){
             System.out.print(round+1 + "회차 점수 입력 : ");
             score.add(sc.nextInt());
 
             // Score(subjectId, studentId, testRound, score) 객체를 생성해서 scoreList에 담기
             Score addedScore = new Score(subjectSelector - 1, studentSelector - 1, round+1, score.get(round));
             addedScore.addGrade(keepGrade.keepScore(addedScore, subjectList.findSubjectById(subjectSelector - 1)));
-            scoreList.addScoreList(addedScore);
+            scoreList.addScore(addedScore);
         }
 
         // scoreList에 들어있는 값 출력

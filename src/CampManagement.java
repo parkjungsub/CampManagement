@@ -50,7 +50,6 @@ public class CampManagement {
             //수강생 과목별 시험 회차 및 점수 등록
             if(click == 3){
                 scoreService.registerScore(studentRepository, subjectRepository, scoreRepository);
-                scoreRepository.showScoreList();
             }
             //수강생 과목별 시험 회차 및 점수 수정
             if(click == 4){
