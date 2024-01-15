@@ -7,11 +7,10 @@ public class Score {
     private Integer studentId;
     private Integer testRound;
     private Integer score;
-    private String grade;
+    private String grade ="N";
 
     public Score() {
     }
-
     public Score(Integer subjectId, Integer studentId, Integer testRound, Integer score) {
         this.subjectId = subjectId;
         this.studentId = studentId;
@@ -47,19 +46,14 @@ public class Score {
     public void updateScore(Integer updateScoreNumber){
         this.score = updateScoreNumber;
     }
+    public void addScore(Integer inputScore){
+        score = inputScore;
+    }
 
-    public String updateGrade(SubjectList subjectList){
-        for (Subject subject : subjectList.getSubjectList()) {
-            if(subject.getSubjectId() == subjectId){
-                if(subject.getOptionalRequired() == OptionalRequired.ESSENTIAL){
-                    if(score>=95) return "A";
-                    else if(score >= 90) return "B";
-                    else if(score >= 80) return "C";
-                    else if(score >= 70) return "D";
-                    else return "F";
-                }
-            }
-        }
-        return "존재하지 않는 과목입니다.";
+    public void addGrade(String inputGrade) {
+        grade = inputGrade;
+    }
+    public void showScore(){
+        System.out.println(subjectId + " " + studentId + " " +testRound + " " + score + " " + grade);
     }
 }

@@ -17,8 +17,7 @@ public class ScoreService {
     // 메서드 이름 변경
     public void registerScore(StudentList studentList, SubjectList subjectList, ScoreList scoreList) {
 
-        CreateSubjectsThatStudentListening add = new CreateSubjectsThatStudentListening();
-        add.createSubjectsThatStudentListening(studentList, subjectList);
+
 
         System.out.println("성적을 입력할 학생을 고르세요.");
 
@@ -54,16 +53,15 @@ public class ScoreService {
 
         // 회차 입력 x => 자동으로 회차 출력, 점수 등록
         List<Integer> score = new ArrayList<>();
-        int round = 1;
-        for(int i=0; i<10; i++){
-            System.out.print(round + "회차 점수 입력 : ");
+
+        for(int round=0; round<10; round++){
+            System.out.print(round+1 + "회차 점수 입력 : ");
             score.add(sc.nextInt());
 
             // Score(subjectId, studentId, testRound, score) 객체를 생성해서 scoreList에 담기
-            Score addedScore = new Score(subjectSelector - 1, studentSelector - 1, round, score.get(i));
-            keepGrade.keepScore(addedScore, subjectList.findSubjectById(subjectSelector - 1));
-            scoreList.setScoreList(addedScore);
-            round++;
+            Score addedScore = new Score(subjectSelector - 1, studentSelector - 1, round+1, score.get(round));
+            addedScore.addGrade(keepGrade.keepScore(addedScore, subjectList.findSubjectById(subjectSelector - 1)));
+            scoreList.addScoreList(addedScore);
         }
 
         // scoreList에 들어있는 값 출력

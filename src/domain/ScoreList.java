@@ -6,7 +6,7 @@ import java.util.List;
 public class ScoreList {
     private List<Score> scoreList = new ArrayList<>();
 
-    public void setScoreList(Score score){
+    public void addScoreList(Score score){
         scoreList.add(score);
     }
 
@@ -25,5 +25,9 @@ public class ScoreList {
         }
         return -1;
     }
-
+    public void showScoreList(){
+        for (Score score : scoreList) {
+            score.showScore();
+        }
+    }
 }

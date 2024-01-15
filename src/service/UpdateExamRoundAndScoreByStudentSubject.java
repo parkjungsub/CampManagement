@@ -14,16 +14,16 @@ public class UpdateExamRoundAndScoreByStudentSubject {
         int studentId = input.nextInt();
         if(studentRepository.isStudentById(studentId)==null) System.out.println("그런 학생 없음!");
         else {
-            Student findStudent = studentRepository.findStudentById(studentId);
+            Student findStudent = studentRepository.findStudentById(studentId-1);
             findStudent.showSubjectList();
             System.out.print("변경할 과목의 id값을 입력하세요 : ");
             Integer subjectId = input.nextInt();
-            Subject findSubjectByIdIncludeStudent = subjectRepository.findSubjectById(subjectId);
+            Subject findSubjectByIdIncludeStudent = subjectRepository.findSubjectById(subjectId-1);
             System.out.print("변경할 회차를 입력하세요 : ");
             Integer updateTestRoundNumber = input.nextInt();
             System.out.print("변경할 점수를 입력하세요 : ");
             Integer updateScoreNumber = input.nextInt();
-            updateExamRoundAndScoreByStudentSubject(studentRepository.findStudentById(studentId),scoreRepository,findSubjectByIdIncludeStudent,updateTestRoundNumber,updateScoreNumber);
+            updateExamRoundAndScoreByStudentSubject(studentRepository.findStudentById(studentId-1),scoreRepository,findSubjectByIdIncludeStudent,updateTestRoundNumber,updateScoreNumber);
 
         }
     }
