@@ -14,7 +14,7 @@ public class CreateSubjectsThatStudentListening {
             studentRepository.showStudentList();
             System.out.println("과목을 추가할 수강생의 id 값을 입력하세요");
             Integer input = scanner.nextInt();
-            Student selectedStudent = studentRepository.findStudentById(input);
+            Student selectedStudent = studentRepository.findStudentById(input-1);
             selectedStudent.addSubjects(addSubjects(subjectRepository));
         }
 

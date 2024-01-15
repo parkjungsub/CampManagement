@@ -8,14 +8,16 @@ import java.util.Scanner;
 
 public class ScoreService {
 
-    private ScoreList scoreList = new ScoreList();
 
     private Scanner sc = new Scanner(System.in);
 
 
 
     // 메서드 이름 변경
-    public void registerScore(StudentList studentList, SubjectList subjectList) {
+    public void registerScore(StudentList studentList, SubjectList subjectList, ScoreList scoreList) {
+
+        CreateSubjectsThatStudentListening add = new CreateSubjectsThatStudentListening();
+        add.createSubjectsThatStudentListening(studentList, subjectList);
 
         System.out.println("성적을 입력할 학생을 고르세요.");
 
@@ -28,7 +30,7 @@ public class ScoreService {
 
 
         // 등록된 학생이 아닐 경우를 처리
-        checkStudent(studentList,subjectList,studentSelector);
+        checkStudent(studentList,subjectList,studentSelector-1, scoreList);
 
 
         System.out.println("성적을 입력할 과목을 고르세요.");
@@ -36,9 +38,8 @@ public class ScoreService {
 
         // #### 현재 과목전체를 보여줌 => 수강하고있는 과목만 출력하도록. ####
         // 위에서 입력한 학생의 Student 객체
-        Student studentSelect = studentList.findStudentById(studentSelector);
-        // 질문 : findStudentById() 에서 studentList.get(index) ==> index값을 입력받는거 아닌가요??? TODO
-        // studentSelector-1 이 들어가야할 것 같은데 studentSelector를 넣으니 정상적으로 작동하네요ㅠㅠ
+        Student studentSelect = studentList.findStudentById(studentSelector-1);
+
 
         for(int i=0; i<studentSelect.getSubjectList().getSubjectList().size(); i++){
             System.out.println(studentSelect.getSubjectList().findSubjectById(i).getSubjectId() + ". " + studentSelect.getSubjectList().findSubjectById(i).getName());
@@ -48,7 +49,7 @@ public class ScoreService {
         int subjectSelector = sc.nextInt();
 
         // 수강중인 과목이 아닐 경우를 처리
-        checkSubject(studentList, subjectList, subjectSelector, studentSelect);
+        checkSubject(studentList, subjectList, subjectSelector, studentSelect, scoreList);
 
         // 회차 입력 x => 자동으로 회차 출력, 점수 등록
         List<Integer> score = new ArrayList<>();
@@ -68,21 +69,19 @@ public class ScoreService {
     }
 
     // 등록된 학생이 아닐 경우를 처리
-    private void checkStudent(StudentList studentList, SubjectList subjectList,Integer studentSelector){
+    private void checkStudent(StudentList studentList, SubjectList subjectList,Integer studentSelector, ScoreList scoreList){
         boolean studentCheck = true;
-        for(int i=0; i<studentList.getStudentList().size(); i++){
-            if(studentSelector > studentList.getStudentList().size()){
-                studentCheck = false;
-            }
+        if(studentSelector >= studentList.getStudentList().size()){
+            studentCheck = false;
         }
         if(!studentCheck){
             System.out.println("등록된 학생이 아닙니다.");
-            registerScore(studentList,subjectList);
+            registerScore(studentList,subjectList, scoreList);
         }
     }
 
     // 수강중인 과목이 아닐 경우를 처리
-    private void checkSubject(StudentList studentList, SubjectList subjectList, Integer subjectSelector, Student studentSelect){
+    private void checkSubject(StudentList studentList, SubjectList subjectList, Integer subjectSelector, Student studentSelect, ScoreList scoreList){
         boolean subjectCheck = false;
         for (int i=0; i<studentSelect.getSubjectList().getSubjectList().size(); i++){
             if(subjectSelector == studentSelect.getSubjectList().findSubjectById(i).getSubjectId()){
@@ -91,7 +90,7 @@ public class ScoreService {
         }
         if(!subjectCheck){
             System.out.println("수강하고 있는 과목이 아닙니다.");
-            registerScore(studentList,subjectList);
+            registerScore(studentList,subjectList,scoreList);
         }
     }
 
