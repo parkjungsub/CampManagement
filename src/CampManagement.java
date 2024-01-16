@@ -57,7 +57,7 @@ public class CampManagement {
             }
             //수강생 특정 회차별 등급 조회
             if(click == 5){
-
+                scoreService.examineStudentGradeBySpecificRound(studentRepository,scoreRepository);
             }
             //수강생 특정 삭제
             if (click == 6){

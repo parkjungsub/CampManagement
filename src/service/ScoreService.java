@@ -107,4 +107,20 @@ public class ScoreService {
         System.out.println("성적이 등록 되었습니다.");
     }
 
+    public void examineStudentGradeBySpecificRound(StudentList studentRepository,ScoreList scoreRepository){
+        studentRepository.showStudentList();
+        System.out.print("조회할 수강생의 Id값을 고르시오 : ");
+        int selectedStudentId = sc.nextInt() - 1;
+        Student findStudent = studentRepository.findStudentById(selectedStudentId);
+        findStudent.showSubjectList();
+        System.out.print("조회할 과목의 Id 값을 고르시오 : ");
+        int selectedSubjectId = sc.nextInt() - 1;
+        System.out.print("조회할 회차를 입력하세요 : ");
+        int selectedTestNumber = sc.nextInt();
+        for (Score score : scoreRepository.getScoreList()) {
+            if(score.getStudentId() == selectedStudentId && score.getSubjectId() == selectedSubjectId && score.getTestRound() == selectedTestNumber){
+                System.out.println(score.getGrade());
+            }
+        }
+    }
 }
