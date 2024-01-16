@@ -6,9 +6,6 @@ import java.util.List;
 public class ScoreList {
     private List<Score> scoreList = new ArrayList<>();
 
-    public void setScoreList(Score score){
-        scoreList.add(score);
-    }
 
     public List<Score> getScoreList() {
         return scoreList;
@@ -25,5 +22,16 @@ public class ScoreList {
         }
         return -1;
     }
+    public void showScoreList(){
+        for (Score score : scoreList) {
+            score.showScore();
+        }
+    }
 
+    public void deleteScore(Score score) {
+        for (Score temp : scoreList) {
+            if(score.getStudentId() == temp.getStudentId() && score.getTestRound() == temp.getTestRound()&& score.getSubjectId() == temp.getSubjectId())
+                scoreList.remove(score);
+        }
+    }
 }

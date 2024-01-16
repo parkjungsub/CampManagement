@@ -5,35 +5,41 @@ import domain.*;
 import java.util.Scanner;
 
 public class UpdateExamRoundAndScoreByStudentSubject {
+    private KeepGrade keepGrade = new KeepGrade();
 
     public void updateScoreByStudentRound(StudentList studentRepository,SubjectList subjectRepository, ScoreList scoreRepository) {
         Scanner input = new Scanner(System.in);
-        System.out.print("변경할 학생의 이름을 입력해 주세요 : ");
-        String studentName = input.next();
-        if(studentRepository.isStudentByName(studentName)==null) System.out.println("그런 학생 없음!");
+        studentRepository.showStudentList();
+        System.out.print("변경할 학생의 id값을 입력해 주세요 : ");
+        int studentId = input.nextInt();
+        if(studentRepository.isStudentById(studentId)==null) System.out.println("그런 학생 없음!");
         else {
+            Student findStudent = studentRepository.findStudentById(studentId-1);
+            System.out.println(findStudent.getName());
+            findStudent.showSubjectList();
+            System.out.print("변경할 과목의 id값을 입력하세요 : ");
+            Integer subjectId = input.nextInt();
+            Subject findSubjectByIdIncludeStudent = subjectRepository.findSubjectById(subjectId-1);
+            System.out.println(findSubjectByIdIncludeStudent.getName());
             System.out.print("변경할 회차를 입력하세요 : ");
             Integer updateTestRoundNumber = input.nextInt();
             System.out.print("변경할 점수를 입력하세요 : ");
             Integer updateScoreNumber = input.nextInt();
-            updateExamRoundAndScoreByStudentSubject(studentRepository.isStudentByName(studentName),subjectRepository, scoreRepository,updateTestRoundNumber,updateScoreNumber);
+            System.out.println((studentId-1) + " " + (subjectId-1) + " "+updateTestRoundNumber);
+            updateExamRoundAndScoreByStudentSubject(findStudent,scoreRepository,findSubjectByIdIncludeStudent,updateTestRoundNumber,updateScoreNumber);
         }
     }
 
-    private void updateExamRoundAndScoreByStudentSubject(Student student,SubjectList subjectList, ScoreList scoreList, Integer updateTestRound, Integer updateScore){
-        if(scoreList.containStudentByScore(student) == -1){
-            System.out.println(student.getName() + "의 점수 정보가 없습니다.");
-        }
-        else {
+    private void updateExamRoundAndScoreByStudentSubject(Student student,ScoreList scoreList, Subject subject,Integer testRound, Integer updateScore){
+            System.out.println(student.getStudentId() + " " + subject.getSubjectId() + " " + testRound);
             for (Score score : scoreList.getScoreList()) {
-                if(score.getStudentId() == student.getStudentId()) {
-                    score.updateTestRound(updateTestRound);
+                if(score.getStudentId() == student.getStudentId()-1 && score.getTestRound() == testRound && score.getSubjectId() == subject.getSubjectId()-1) {
                     score.updateScore(updateScore);
-                    score.updateGrade(subjectList);
+                    score.addGrade(keepGrade.keepScore(score, subject));
                 }
             }
-            System.out.println(student.getName() + "의 " + updateTestRound + "회차의 점수가 " + updateScore +"로 변경 되었습니다.");
-        }
+            System.out.println(student.getName() + "의 " + testRound + "회차의 점수가 " + updateScore +"로 변경 되었습니다.");
+
     }
 
 }
